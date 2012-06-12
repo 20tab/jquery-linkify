@@ -23,3 +23,13 @@ function toHashtagUrl(hashtag) {
 
 $("#content-with-hashtag").linkify(toHashtagUrl);
 ```
+
+or to enable the screen name link
+
+``` js
+function toAtUrl(at) {
+  return "http://myservice.com?q=" + at;
+}
+
+$("#content-with-hashtag").linkify(undefined, toAtUrl);
+```

@@ -13,12 +13,14 @@
     function toHashtagUrl(hashtag) {
       return "http://myservice.com/search?q=" + hashtag;
     }
-    
+    function toAtUrl(at) {
+      return "http://myservice.com/search?q=" + at;
+    }
     $(document).ready(function() {
       $("form input[type='submit']").click(function() {
         str = this.form.content.value
         $("#content").html(str);
-        $("#content").linkify(toHashtagUrl);
+        $("#content").linkify(toHashtagUrl,toAtUrl);
         return false;
       });
     });
@@ -27,7 +29,7 @@
 <body>
   <h1>Linkify jQuery Plugin Demo</h1>
   <form>
-      <textarea name="content">Go to http://www.youtube.com to watch the #movie</textarea>
+      <textarea name="content">Go to http://www.youtube.com to watch the #movie or @name</textarea>
       <div>
         <input type="submit" value="Apply"/>
       </div>
