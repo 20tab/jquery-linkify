@@ -13,7 +13,11 @@ function linkify(string, buildHashtagUrl, buildAtUrl) {
   $.fn.linkify = function(buildHashtagUrl,buildAtUrl) {
     return this.each(function() {
       var $this = $(this);
-      $this.html(linkify($this.html(), buildHashtagUrl,buildAtUrl));
+      if($this.attr('data-linkified') == undefined){
+      	$this.html(linkify($this.html(), buildHashtagUrl,buildAtUrl));
+      	$this.attr('data-linkified','1');
+      }
+      
     });
   }
 })(jQuery);
